@@ -1,0 +1,46 @@
+:root {
+  /* COLORS */
+  --main-font-color: white;
+  --main-bg-color: rgb(69, 69, 69);
+  --main-shadow-color: rgba(0, 0, 0, 0.5);
+  --banner-bg-color: rgb(26, 26, 26);
+  --accent-color: dodgerblue;
+  --bg-click-color: brightness(0.7);
+
+  /* DIMENSIONS */
+  --main-margin: 20px;
+  --main-padding: 10px;
+  --main-border-radius: 10px;
+  --banner-height: 40px;
+
+  /* PROPERTIES */
+  --main-shadow: 8px 8px 16px var(--main-shadow-color);
+
+  /* DURATIONS */
+  --main-transition-duration: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  color: var(--main-font-color);
+  background-color: var(--main-bg-color);
+}
+
+#page-container > * {
+  width: 100dvw;
+}
+
+#page-container {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
