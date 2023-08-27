@@ -4,7 +4,8 @@ export default function initPage() {
 
   let pageContents = {
     header: initHeader,
-    homePage: initMain,
+    aside: initAside,
+    main: initMain,
     footer: initFooter,
   };
 
@@ -31,6 +32,24 @@ const initHeader = (() => {
   return headerWrapper;
 })();
 
+const initAside = (() => {
+  let asideWrapper = document.createElement('aside');
+
+  let asideContent = {
+    home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
+    flagged: document.createElement('div'), // this will display notes with flag:true
+    projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
+  }
+
+  Object.keys(asideContent).forEach(key => {
+    asideContent[key].id = key;
+    asideContent[key].textContent = key; // this will change to display section title
+    asideWrapper.appendChild(asideContent[key]);
+  });
+
+  return asideWrapper;
+})();
+
 const initMain = (() => {
   let mainWrapper = document.createElement('main');
   
@@ -43,14 +62,11 @@ const initFooter = (() => {
   let footerWrapper = document.createElement('footer');
 
   let footerContent = {
-    title: document.createElement('span'),
+    link: document.createElement('span'),
   }
 
-  footerContent.title.innerHTML = `<span>
-    ©
-    <a href="https://github.com/brzostovski" target="_blank">brzostovski</a>
-    2023
-  </span>`;
+  footerContent.link.innerHTML =
+  `© <a href="https://github.com/brzostovski" target="_blank">brzostovski</a> 2023`;
 
   Object.keys(footerContent).forEach(key => {
     footerWrapper.appendChild(footerContent[key]);
