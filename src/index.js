@@ -1,13 +1,8 @@
 import './style.css';
-import printMe from "./print";
+import initPage from "./initPage";
 
 const page = (() => {
-  let pageContainer = document.createElement('div');
-  pageContainer.id = 'page-container';
-  pageContainer.textContent = 'this is some text';
-  document.body.appendChild(pageContainer);
-
-  printMe();
+  initPage();
 
   return 0;
 })()
