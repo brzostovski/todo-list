@@ -6,6 +6,8 @@ module.exports = {
   entry: {
     index: './src/index.js',
     initPage: './src/initPage.js',
+    render: './src/render.js',
+    notes: './src/notes.js',
   },
   devtool: 'inline-source-map',
   plugins: [
