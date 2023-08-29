@@ -1,18 +1,40 @@
-// this is module for notes objects
-
 export default function notes() {
-  console.log('notes');
+  let projects = [];
+  
+  let inbox = new Project('Inbox');
+  let defaultNote = new Note(
+    'Example Note',
+    'This is an example note!',
+    '12.12.2024',
+    false
+  );
+
+  inbox.notes.push(defaultNote);
+  projects.push(inbox);
+
+  return {projects};
 };
 
-// GLOBAL OBJECT -> PROJECTS -> NOTES
-// by default new notes will be created in project 'Inbox'
+let Project = (function (name, ...notes) {
+  this.name = name;
+  this.notes = notes;
 
-// here will be objects to create global object holding projects
+  return {
+    name,
+    notes,
+  }
+});
 
-// here will be objects - projects containing notes
+let Note = (function (title, description, dueDate, flag) {
+  this.title = title;
+  this.description = description;
+  this.dueDate = dueDate;
+  this.flag = flag;
 
-// here will be note object that will contain:
-// title
-// description
-// dueDate
-// flag: true/false (instead of priority)
+  return {
+    title,
+    description,
+    dueDate,
+    flag,
+  }
+});
