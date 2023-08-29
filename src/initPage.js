@@ -3,10 +3,10 @@ export default function initPage() {
   pageContainer.id = 'page-container';
 
   let pageContents = {
-    header: initHeader,
-    aside: initAside,
-    main: initMain,
-    footer: initFooter,
+    header: initHeader(),
+    aside: initAside(),
+    main: initMain(),
+    footer: initFooter(),
   };
 
   Object.keys(pageContents).forEach(key => {
@@ -30,7 +30,7 @@ const initHeader = (() => {
   });
 
   return headerWrapper;
-})();
+});
 
 const initAside = (() => {
   let asideWrapper = document.createElement('aside');
@@ -48,7 +48,7 @@ const initAside = (() => {
   });
 
   return asideWrapper;
-})();
+});
 
 const initMain = (() => {
   let mainWrapper = document.createElement('main');
@@ -56,7 +56,7 @@ const initMain = (() => {
   mainWrapper.textContent = 'dummy text';
 
   return mainWrapper;
-})();
+});
 
 const initFooter = (() => {
   let footerWrapper = document.createElement('footer');
@@ -73,4 +73,4 @@ const initFooter = (() => {
   });
 
   return footerWrapper;
-})();
+});
