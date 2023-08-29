@@ -3,9 +3,10 @@ import initPage from "./initPage";
 import notes from './notes';
 import render from './render';
 
-const page = (() => {
-  initPage();
-  render(notes().projects);
+(() => {
+  let pageContents = initPage().pageContents;
+  
+  render(notes().projects[0], pageContents.main);
 
   return {};
 })();
