@@ -1,5 +1,3 @@
-// logic to render notes goes in this module
-
-export default function render() {
-  console.log('render');
+export default function render(object) {
+  console.log(object);
 }
