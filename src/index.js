@@ -1,11 +1,11 @@
 import './style.css';
 import initPage from "./initPage";
-import render from './render';
 import notes from './notes';
+import render from './render';
 
 const page = (() => {
   initPage();
-  render();
+  render(notes().projects);
 
   return {};
-})()
+})();
