@@ -1,5 +1,29 @@
-export default function notes() {
+export default (function notes() {
   let projects = [];
+
+  let Project = (function (name, ...notes) {
+    this.name = name;
+    this.notes = notes;
+  
+    return {
+      name,
+      notes,
+    }
+  });
+  
+  let Note = (function (title, description, dueDate, flag) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.flag = flag;
+  
+    return {
+      title,
+      description,
+      dueDate,
+      flag,
+    }
+  });
   
   let inbox = new Project('Inbox');
   let defaultNote = new Note(
@@ -13,28 +37,4 @@ export default function notes() {
   projects.push(inbox);
 
   return {projects};
-};
-
-let Project = (function (name, ...notes) {
-  this.name = name;
-  this.notes = notes;
-
-  return {
-    name,
-    notes,
-  }
-});
-
-let Note = (function (title, description, dueDate, flag) {
-  this.title = title;
-  this.description = description;
-  this.dueDate = dueDate;
-  this.flag = flag;
-
-  return {
-    title,
-    description,
-    dueDate,
-    flag,
-  }
 });
