@@ -1,75 +1,80 @@
-export default function initPage() {
-  let pageContainer = document.createElement('div');
-  pageContainer.id = 'page-container';
+export default (function initPage() {
+  let _pageContainer = document.createElement('div');
+  _pageContainer.id = 'page-container';
+
+  let _pageHeader = _initHeader();
+  let _pageAside = _initAside();
+  let _pageMain = _initMain();
+  let _pageFooter = _initFooter();
 
   let pageContents = {
-    header: initHeader(),
-    aside: initAside(),
-    main: initMain(),
-    footer: initFooter(),
+    header: _pageHeader,
+    aside: _pageAside,
+    main: _pageMain,
+    footer: _pageFooter,
   };
 
   Object.keys(pageContents).forEach(key => {
-    pageContainer.appendChild(pageContents[key]);
+    _pageContainer.appendChild(pageContents[key]);
   });
 
-  return document.body.appendChild(pageContainer);
-}
+  document.body.appendChild(_pageContainer);
 
-const initHeader = (() => {
+  return {pageContents};
+});
+
+const _initHeader = (() => {
   let headerWrapper = document.createElement('header');
 
-  let headerContent = {
+  let _headerContent = {
     title: document.createElement('span'),
   }
 
-  headerContent.title.textContent = 'Project: Todo List';
+  _headerContent.title.textContent = 'Project: Todo List';
 
-  Object.keys(headerContent).forEach(key => {
-    headerWrapper.appendChild(headerContent[key]);
+  Object.keys(_headerContent).forEach(key => {
+    headerWrapper.appendChild(_headerContent[key]);
   });
 
   return headerWrapper;
 });
 
-const initAside = (() => {
+const _initAside = (() => {
   let asideWrapper = document.createElement('aside');
 
-  let asideContent = {
+  let _asideContent = {
     home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
     flagged: document.createElement('div'), // this will display notes with flag:true
     projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
   }
 
-  Object.keys(asideContent).forEach(key => {
-    asideContent[key].id = key;
-    asideContent[key].textContent = key; // this will change to display section title
-    asideWrapper.appendChild(asideContent[key]);
+  Object.keys(_asideContent).forEach(key => {
+    _asideContent[key].id = key;
+    _asideContent[key].textContent = key; // this will change to display section title
+    asideWrapper.appendChild(_asideContent[key]);
   });
 
   return asideWrapper;
 });
 
-const initMain = (() => {
+const _initMain = (() => {
   let mainWrapper = document.createElement('main');
-  
-  mainWrapper.textContent = 'dummy text';
 
   return mainWrapper;
 });
 
-const initFooter = (() => {
+const _initFooter = (() => {
   let footerWrapper = document.createElement('footer');
 
-  let footerContent = {
+  let _footerContent = {
     link: document.createElement('span'),
   }
 
-  footerContent.link.innerHTML =
+  _footerContent.link.innerHTML =
   `© <a href="https://github.com/brzostovski" target="_blank">brzostovski</a> 2023`;
 
-  Object.keys(footerContent).forEach(key => {
-    footerWrapper.appendChild(footerContent[key]);
+  Object.keys(_footerContent).forEach(key => {
+    footerWrapper.appendChild(_footerContent[key]);
   });
 
   return footerWrapper;
