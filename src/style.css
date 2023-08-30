@@ -4,16 +4,18 @@
   --main-bg-color: rgb(69, 69, 69);
   --main-shadow-color: rgba(0, 0, 0, 0.5);
   --banner-bg-color: rgb(26, 26, 26);
+  --note-bg-color: rgba(30, 144, 255, 0.2);
   --accent-color: dodgerblue;
   --bg-click-color: brightness(0.7);
 
   /* DIMENSIONS */
   --main-margin: 20px;
+  --note-margin: 10px;
   --main-padding: 10px;
   --main-border-radius: 10px;
 
   /* PROPERTIES */
-  --main-shadow: 8px 8px 16px var(--main-shadow-color);
+  --main-shadow: 0 0 16px var(--main-shadow-color);
 
   /* DURATIONS */
   --main-transition-duration: 0.2s;
@@ -88,11 +90,36 @@ main {
 
   padding: var(--main-padding);
 
+  overflow: auto;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  gap: 20px;
+  
+  gap: 10px;
+}
+
+.note > * {
+  margin: var(--note-margin);
+  background-color: transparent;
+}
+
+.note {
+  min-width: 200px;
+  max-width: 800px;
+
+  background-color: var(--note-bg-color);
+
+  box-shadow: var(--main-shadow);
+
+  border-radius: var(--main-border-radius);
+}
+
+.note > .title {
+  font-weight: bold;
+}
+
+.note > .description {
+  font-style: italic;
 }
 
 footer {
