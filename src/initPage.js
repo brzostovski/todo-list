@@ -28,9 +28,12 @@ const _initHeader = (() => {
 
   let _headerContent = {
     title: document.createElement('span'),
+    addNote: document.createElement('button'),
   }
 
   _headerContent.title.textContent = 'Project: Todo List';
+  _headerContent.addNote.textContent = '﹢';
+  _headerContent.addNote.id = 'new-note-btn';
 
   Object.keys(_headerContent).forEach(key => {
     headerWrapper.appendChild(_headerContent[key]);
