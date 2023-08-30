@@ -10,6 +10,8 @@ export default (function notes() {
       notes,
     }
   });
+
+  let inbox = new Project('Inbox');
   
   let Note = (function (title, description, dueDate, flag) {
     this.title = title;
@@ -25,7 +27,6 @@ export default (function notes() {
     }
   });
   
-  let inbox = new Project('Inbox');
   let defaultNote = new Note(
     'Example Note',
     'This is an example note! And this is just more and more text to see how the notes are being displayed after styling them a bit.',
@@ -36,7 +37,7 @@ export default (function notes() {
   let shortNote = new Note('Short Note', 'This note is shorter!', '', true);
 
   for(let i = 0; i < 20; i++){inbox.notes.push(defaultNote);};
-  inbox.notes[5] = shortNote;
+  inbox.notes[2] = shortNote;
   projects.push(inbox);
 
   return {projects};
