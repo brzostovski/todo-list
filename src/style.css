@@ -13,6 +13,7 @@
   --note-margin: 10px;
   --main-padding: 10px;
   --main-border-radius: 10px;
+  --btn-padding: 0 10px;
 
   /* PROPERTIES */
   --main-shadow: 0 0 16px var(--main-shadow-color);
@@ -69,6 +70,31 @@ header {
 
   font-size: xx-large;
   font-weight: bolder;
+}
+
+header > button {
+  all: unset;
+
+  cursor: pointer;
+  color: var(--banner-bg-color);
+  font-size: normal;
+
+  background-color: var(--accent-color);
+
+  padding: var(--btn-padding);
+  border: outset var(--accent-color);
+  border-radius: var(--main-border-radius);
+
+  transition-duration: var(--main-transition-duration);
+}
+
+header > button:hover {
+  scale: 1.05;
+}
+
+header > button:active {
+  scale: 1;
+  filter: var(--bg-click-color);
 }
 
 aside {
