@@ -4,7 +4,7 @@ export default (function initPage() {
 
   let _pageHeader = _initHeader();
   let _pageAside = _initAside();
-  let _pageMain = _initMain();
+  let _pageMain = _initMain(); // form will live on top of main
   let _pageFooter = _initFooter();
 
   let pageContents = {
@@ -62,6 +62,26 @@ const _initAside = (() => {
 
 const _initMain = (() => {
   let mainWrapper = document.createElement('main');
+
+  let _form = document.createElement('form');
+
+  let _formContent = {
+    title: {
+      label: '',
+      input: '',
+    },
+    description: {
+      label: '',
+      input: '',
+    },
+    date: {
+      label: '',
+      input: '', // input will be date picker
+    },
+    flag: {
+      button: '', // should be stylized button that acts as toggle
+    },
+  }
 
   return mainWrapper;
 });
