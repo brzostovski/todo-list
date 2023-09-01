@@ -5,8 +5,8 @@ import render from './render';
 
 (() => {
   let pageContents = initPage().pageContents;
-  
-  render(notes().projects[0], pageContents.main);
+
+  render(notes().projectsArr[0], pageContents.main);
 
   return {};
 })();
