@@ -1,5 +1,5 @@
 export default (function notes() {
-  let projects = [];
+  let projectsArr = [];
 
   let Project = (function (name, ...notes) {
     this.name = name;
@@ -38,7 +38,11 @@ export default (function notes() {
 
   for(let i = 0; i < 20; i++){inbox.notes.push(defaultNote);};
   inbox.notes[2] = shortNote;
-  projects.push(inbox);
+  projectsArr.push(inbox);
 
-  return {projects};
+  return {
+    projectsArr,
+    Project,
+    Note,
+  };
 });
