@@ -67,21 +67,45 @@ const _initMain = (() => {
 
   let _formContent = {
     title: {
-      label: '',
-      input: '',
+      label: `<label for="title">Title:</label>`,
+      input: `
+        <input
+        type="text"
+        name="note-title"
+        id="title"
+        placeholder="Note title"
+        required>`,
     },
     description: {
-      label: '',
-      input: '',
+      label: `<label for="desc">Description:</label>`,
+      input: `
+      <input
+      type="text"
+      name="note-description"
+      id="desc"
+      placeholder="Note description"
+      required>`,
     },
     date: {
-      label: '',
-      input: '', // input will be date picker
+      label: `<label for="date">Due date:</label>`,
+      input: `<input type="text" name="due-date" id="date">`, // input will be date picker
     },
     flag: {
-      button: '', // should be stylized button that acts as toggle
+      button: `<label for="flag-button">Flagged</label>
+        <input type="checkbox" id="flag-button">`, // should be stylized button that acts as toggle
     },
   }
+
+  Object.keys(_formContent).forEach(key => {
+    if (key === 'flag') {
+      _form.innerHTML += _formContent[key].button;
+    } else {
+      _form.innerHTML += _formContent[key].label;
+      _form.innerHTML += _formContent[key].input;
+    };
+  });
+
+  mainWrapper.appendChild(_form);
 
   return mainWrapper;
 });
