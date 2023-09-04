@@ -94,10 +94,13 @@ const _initMain = (() => {
       button: `<label for="flag-button">Flagged</label>
         <input type="checkbox" id="flag-button">`, // should be stylized button that acts as toggle
     },
+    submit: {
+      button: `<button type="button" id="add-note-btn">Add note!</button>`,
+    },
   }
 
   Object.keys(_formContent).forEach(key => {
-    if (key === 'flag') {
+    if ((key === 'flag') || (key === 'submit')) {
       _form.innerHTML += _formContent[key].button;
     } else {
       _form.innerHTML += _formContent[key].label;
