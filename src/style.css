@@ -125,6 +125,10 @@ main {
   gap: 10px;
 }
 
+input {
+  background-color: var(--main-font-color);
+}
+
 .note > * {
   margin: var(--note-margin);
   background-color: transparent;
