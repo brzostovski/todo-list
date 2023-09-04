@@ -126,6 +126,7 @@ main {
 }
 
 input {
+  color: var(--main-bg-color);
   background-color: var(--main-font-color);
 }
 
