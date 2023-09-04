@@ -26,6 +26,15 @@ export default (function notes() {
       flag,
     }
   });
+
+  function createNote() {
+    const _title = document.getElementById('title').value;
+    const _desc = document.getElementById('desc').value;
+    const _date = document.getElementById('date').value;
+    const _flag = document.getElementById('flag-button').value;
+
+    return (new Note(_title, _desc, _date, _flag));
+  };
   
   let defaultNote = new Note(
     'Example Note',
@@ -44,5 +53,6 @@ export default (function notes() {
     projectsArr,
     Project,
     Note,
+    createNote,
   };
 });
