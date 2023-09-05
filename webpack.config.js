@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    initPage: './src/initPage.js',
+    page: './src/page.js',
     render: './src/render.js',
     notes: './src/notes.js',
   },
