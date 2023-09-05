@@ -20,7 +20,10 @@ export default (function page() {
 
   document.body.appendChild(_pageContainer);
 
-  return {pageContents};
+  return {
+    pageContents,
+    checkFormValidity,
+  };
 });
 
 const _initHeader = (() => {
@@ -127,3 +130,13 @@ const _initFooter = (() => {
 
   return footerWrapper;
 });
+
+function checkFormValidity(form) {
+  let isFormValid = form.checkValidity();
+  if (!isFormValid) {
+    form.reportValidity();
+    return false;
+  } else {
+    return true;
+  }
+};
