@@ -1,4 +1,11 @@
 export default (function page() {
+  return {
+    init,
+    checkFormValidity,
+  };
+});
+
+const init = (() => {
   let _pageContainer = document.createElement('div');
   _pageContainer.id = 'page-container';
 
@@ -22,7 +29,6 @@ export default (function page() {
 
   return {
     pageContents,
-    checkFormValidity,
   };
 });
 
