@@ -4,7 +4,7 @@ import notes from './notes';
 import render from './render';
 
 (() => {
-  let pageContents = initPage().pageContents;
+  const pageContents = initPage().pageContents;
   render(notes().projectsArr[0], pageContents.main);
 
   const form = document.querySelector('form');
@@ -16,7 +16,9 @@ import render from './render';
       if (!isFormValid) {
         form.reportValidity();
       } else {
-        console.log(notes().createNote());
+        pageContents.main.innerHTML = '';
+        notes().addNote();
+        render(notes().projectsArr[0], pageContents.main);
       }
     };
   })();
