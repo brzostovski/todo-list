@@ -31,7 +31,7 @@ export default (function notes() {
     const _title = document.getElementById('title').value;
     const _desc = document.getElementById('desc').value;
     const _date = document.getElementById('date').value;
-    const _flag = document.getElementById('flag-button').value;
+    const _flag = document.getElementById('flag-button').checked;
 
     return (new Note(_title, _desc, _date, _flag));
   };
