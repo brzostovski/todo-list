@@ -42,7 +42,7 @@ const _initHeader = (() => {
   }
 
   _headerContent.title.textContent = 'Project: Todo List';
-  _headerContent.form.style = 'display: none;';
+  _headerContent.form.classList.add = 'hidden';
   _headerContent.showForm.textContent = '﹢';
   _headerContent.showForm.id = 'show-form-btn';
 
