@@ -38,13 +38,13 @@ const _initHeader = (() => {
   let _headerContent = {
     title: document.createElement('span'),
     form: document.createElement('form'),
-    showForm: document.createElement('button'),
+    toggleForm: document.createElement('button'),
   }
 
   _headerContent.title.textContent = 'Project: Todo List';
-  _headerContent.form.classList.add = 'hidden';
-  _headerContent.showForm.textContent = '﹢';
-  _headerContent.showForm.id = 'show-form-btn';
+  _headerContent.form.classList.add('hidden');
+  _headerContent.toggleForm.textContent = '﹢';
+  _headerContent.toggleForm.id = 'toggle-form-btn';
 
   let _formContent = {
     title: {
