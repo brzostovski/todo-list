@@ -9,15 +9,21 @@ import render from './render';
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
-  const showFormBtn = document.getElementById('show-form-btn');
+  const toggleFormBtn = document.getElementById('toggle-form-btn');
 
   const bindEvents = (function() {
     addNoteBtn.onclick = addNoteBtnAction;
-    showFormBtn.onclick = showFormBtnAction;
+    toggleFormBtn.onclick = toggleFormBtnAction;
   })();
 
-  function showFormBtnAction() {
-    form.style = 'display: border-box;'
+  function toggleFormBtnAction() {
+    if (form.classList.contains('hidden')) {
+      form.classList.remove('hidden');
+      toggleFormBtn.textContent = '-';
+    } else {
+      form.classList.add('hidden');
+      toggleFormBtn.textContent = '+';
+    }; // above is more reliable than 'classList.toggle' for some reason
   };
 
   function addNoteBtnAction() {
