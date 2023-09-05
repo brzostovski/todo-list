@@ -28,42 +28,13 @@ const _initHeader = (() => {
 
   let _headerContent = {
     title: document.createElement('span'),
+    form: document.createElement('form'),
     addNote: document.createElement('button'),
   }
 
   _headerContent.title.textContent = 'Project: Todo List';
   _headerContent.addNote.textContent = '﹢';
   _headerContent.addNote.id = 'new-note-btn';
-
-  Object.keys(_headerContent).forEach(key => {
-    headerWrapper.appendChild(_headerContent[key]);
-  });
-
-  return headerWrapper;
-});
-
-const _initAside = (() => {
-  let asideWrapper = document.createElement('aside');
-
-  let _asideContent = {
-    home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
-    flagged: document.createElement('div'), // this will display notes with flag:true
-    projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
-  }
-
-  Object.keys(_asideContent).forEach(key => {
-    _asideContent[key].id = key;
-    _asideContent[key].textContent = key; // this will change to display section title
-    asideWrapper.appendChild(_asideContent[key]);
-  });
-
-  return asideWrapper;
-});
-
-const _initMain = (() => {
-  let mainWrapper = document.createElement('main');
-
-  let _form = document.createElement('form');
 
   let _formContent = {
     title: {
@@ -101,14 +72,40 @@ const _initMain = (() => {
 
   Object.keys(_formContent).forEach(key => {
     if ((key === 'flag') || (key === 'submit')) {
-      _form.innerHTML += _formContent[key].button;
+      _headerContent.form.innerHTML += _formContent[key].button;
     } else {
-      _form.innerHTML += _formContent[key].label;
-      _form.innerHTML += _formContent[key].input;
+      _headerContent.form.innerHTML += _formContent[key].label;
+      _headerContent.form.innerHTML += _formContent[key].input;
     };
   });
 
-  mainWrapper.appendChild(_form);
+  Object.keys(_headerContent).forEach(key => {
+    headerWrapper.appendChild(_headerContent[key]);
+  });
+
+  return headerWrapper;
+});
+
+const _initAside = (() => {
+  let asideWrapper = document.createElement('aside');
+
+  let _asideContent = {
+    home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
+    flagged: document.createElement('div'), // this will display notes with flag:true
+    projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
+  }
+
+  Object.keys(_asideContent).forEach(key => {
+    _asideContent[key].id = key;
+    _asideContent[key].textContent = key; // this will change to display section title
+    asideWrapper.appendChild(_asideContent[key]);
+  });
+
+  return asideWrapper;
+});
+
+const _initMain = (() => {
+  let mainWrapper = document.createElement('main');
 
   return mainWrapper;
 });
