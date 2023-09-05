@@ -73,6 +73,10 @@ header {
   font-weight: bolder;
 }
 
+header > form {
+  font-size: small;
+}
+
 header > button {
   all: unset;
 
