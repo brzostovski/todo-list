@@ -7,6 +7,8 @@
   --note-bg-color: rgba(30, 144, 255, 0.2);
   --accent-color: dodgerblue;
   --bg-click-color: brightness(0.7);
+  --pop-up-color: rgba(255, 255, 255, 0.2);
+  --background-blur: blur(7px);
 
   /* DIMENSIONS */
   --main-margin: 20px;
@@ -14,6 +16,8 @@
   --main-padding: 10px;
   --main-border-radius: 10px;
   --btn-padding: 0 10px;
+  --form-container-width: 400px;
+  --form-container-height: 500px;
 
   /* PROPERTIES */
   --main-shadow: 0 0 16px var(--main-shadow-color);
@@ -75,6 +79,23 @@ header {
 
 header > form {
   font-size: small;
+
+  height: var(--form-container-height);
+  width: var(--form-container-width);
+
+  position: absolute;
+  top: calc((100dvh / 2) - (var(--form-container-height) / 2));
+  left: calc((100dvw / 2) - (var(--form-container-width) / 2));
+
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--main-shadow);
+
+  background-color: var(--pop-up-color);
+  backdrop-filter: var(--background-blur);
+  -webkit-backdrop-filter: var(--background-blur);
+
+  display: flex;
+  flex-direction: column;
 }
 
 header > button {
