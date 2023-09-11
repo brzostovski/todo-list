@@ -60,12 +60,12 @@ const _initHeader = (() => {
     description: {
       label: `<label for="desc">Description:</label>`,
       input: `
-      <input
-      type="text"
+      <textarea
       name="note-description"
       id="desc"
+      wrap="soft"
       placeholder="Note description"
-      required>`,
+      required></textarea>`,
     },
     date: {
       label: `<label for="date">Due date:</label>`,
