@@ -15,9 +15,12 @@
   --note-margin: 10px;
   --main-padding: 10px;
   --main-border-radius: 10px;
+  --input-border-radius: 4px;
   --btn-padding: 0 10px;
   --form-container-width: 400px;
-  --form-container-height: 500px;
+  --form-container-height: 300px;
+  --form-btn-height: 24px;
+  --form-btn-width: 70px;
 
   /* PROPERTIES */
   --main-shadow: 0 0 16px var(--main-shadow-color);
@@ -80,6 +83,8 @@ header {
 header > form {
   font-size: small;
 
+  padding: var(--main-padding);
+
   height: var(--form-container-height);
   width: var(--form-container-width);
 
@@ -98,7 +103,26 @@ header > form {
   flex-direction: column;
 }
 
-header > button {
+label {
+  background-color: transparent;
+}
+
+input,
+textarea {
+  color: var(--main-bg-color);
+  background-color: var(--main-font-color);
+
+  border-radius: var(--input-border-radius);
+
+  resize: none;
+  overflow: auto;
+}
+
+#desc {
+  height: 10rem;
+}
+
+button {
   all: unset;
 
   cursor: pointer;
@@ -114,13 +138,24 @@ header > button {
   transition-duration: var(--main-transition-duration);
 }
 
-header > button:hover {
+button:hover {
   scale: 1.05;
 }
 
-header > button:active {
+button:active {
   scale: 1;
   filter: var(--bg-click-color);
+}
+
+#add-note-btn {
+  color: var(--main-font-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: var(--form-btn-height);
+  width: var(--form-btn-width);
 }
 
 aside {
@@ -148,11 +183,6 @@ main {
   flex-direction: column;
   
   gap: 10px;
-}
-
-input {
-  color: var(--main-bg-color);
-  background-color: var(--main-font-color);
 }
 
 .note > * {
