@@ -11,7 +11,7 @@ const init = (() => {
 
   let _pageHeader = _initHeader();
   let _pageAside = _initAside();
-  let _pageMain = _initMain(); // form will live on top of main
+  let _pageMain = _initMain();
   let _pageFooter = _initFooter();
 
   let pageContents = {
@@ -108,7 +108,7 @@ const _initAside = (() => {
 
   let _asideContent = {
     home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
-    flagged: document.createElement('div'), // this will display notes with flag:true
+    flaggedNotes: document.createElement('div'), // this will display notes with flag:true
     projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
   }
 
