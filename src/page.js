@@ -43,7 +43,7 @@ const _initHeader = (() => {
 
   _headerContent.title.textContent = 'Project: Todo List';
   _headerContent.form.classList.add('hidden');
-  _headerContent.toggleForm.textContent = '﹢';
+  _headerContent.toggleForm.textContent = 'New note';
   _headerContent.toggleForm.id = 'toggle-form-btn';
 
   let _formContent = {
@@ -75,13 +75,20 @@ const _initHeader = (() => {
       button: `<label for="flag-button">Flagged</label>
         <input type="checkbox" id="flag-button">`, // should be stylized button that acts as toggle
     },
-    submit: {
-      button: `<button type="button" id="add-note-btn">Add note!</button>`,
+    buttons: {
+      button: `
+        <div id="btn-container">
+          <button type="button" id="add-note-btn">Add note!</button>
+          <button type="button" id="cancel-btn">Cancel</button>
+        </div>
+      `,
     },
   }
 
   Object.keys(_formContent).forEach(key => {
-    if ((key === 'flag') || (key === 'submit')) {
+    if (
+      (key === 'flag') ||
+      (key === 'buttons')) {
       _headerContent.form.innerHTML += _formContent[key].button;
     } else {
       _headerContent.form.innerHTML += _formContent[key].label;
