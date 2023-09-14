@@ -9,21 +9,20 @@ import render from './render';
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
+  const cancelBtn = document.getElementById('cancel-btn');
   const toggleFormBtn = document.getElementById('toggle-form-btn');
 
   const bindEvents = (function() {
     addNoteBtn.onclick = addNoteBtnAction;
     toggleFormBtn.onclick = toggleFormBtnAction;
+    cancelBtn.onclick = cancelBtnAction;
   })();
 
   function toggleFormBtnAction() {
     if (form.classList.contains('hidden')) {
       form.classList.remove('hidden');
-      toggleFormBtn.textContent = '-';
-    } else {
-      form.classList.add('hidden');
-      toggleFormBtn.textContent = '+';
-    }; // above is more reliable than 'classList.toggle' for some reason
+      toggleFormBtn.classList.add('hidden');
+    };
   };
 
   function addNoteBtnAction() {
@@ -33,8 +32,13 @@ import render from './render';
       pageContents.main.innerHTML = '';
       notes().addNote();
       render(notes().projectsArr[0], pageContents.main);
-    }
-  }
+    };
+  };
+
+  function cancelBtnAction() {
+    form.classList.add('hidden');
+    toggleFormBtn.classList.remove('hidden');
+  };
 
   return {};
 })();
