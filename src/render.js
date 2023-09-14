@@ -11,7 +11,13 @@ let createNoteCard = (function(note) {
   Object.keys(note).forEach(key => {
     let _section = document.createElement('div');
     _section.classList.add(key);
-    _section.textContent = note[key];
+    if (key === 'flag') {
+      (note[key] === true)
+      ? (_section.textContent = '⚑')
+      : (_section.textContent = '⚐')
+    } else {
+      _section.textContent = note[key];
+    }
     card.appendChild(_section);
   });
 
