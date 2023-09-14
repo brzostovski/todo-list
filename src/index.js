@@ -5,7 +5,7 @@ import render from './render';
 
 (() => {
   const pageContents = page().init().pageContents;
-  render(notes().projectsArr[0], pageContents.main);
+  render().projectsNotes(notes().projectsArr[0], pageContents.main);
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
@@ -31,7 +31,9 @@ import render from './render';
     } else {
       pageContents.main.innerHTML = '';
       notes().addNote();
-      render(notes().projectsArr[0], pageContents.main);
+      render().projectsNotes(notes().projectsArr[0], pageContents.main);
+      toggleFormBtn.classList.remove('hidden');
+      form.classList.add('hidden');
     };
   };
 
