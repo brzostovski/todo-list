@@ -1,7 +1,16 @@
 export default (function render() {
   return {
+    allNotes,
     projectsNotes,
   }
+});
+
+let allNotes = (function(projectsArr, domElement) {
+  for (let i = 0; i < projectsArr.length; i++) {
+    projectsArr[i].project.notes.forEach(note => {
+      domElement.appendChild(_noteCard(project, note).card);
+    });
+  };
 });
 
 let projectsNotes = (function(project, domElement) {
