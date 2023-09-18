@@ -36,11 +36,20 @@ let Note = (function (title, description, dueDate, flag) {
   }
 });
 
+const getNewNoteData = (function() {
+  return {
+    title: document.getElementById('title-input').value,
+    desc: document.getElementById('desc-input').value,
+    date: document.getElementById('date-input').value,
+    flag: document.getElementById('flag-btn').checked,
+  };
+});
+
 function _createNote() {
-  let _title = page().getNewNoteData().title;
-  let _desc = page().getNewNoteData().desc;
-  let _date = page().getNewNoteData().date;
-  let _flag = page().getNewNoteData().flag;
+  let _title = getNewNoteData().title;
+  let _desc = getNewNoteData().desc;
+  let _date = getNewNoteData().date;
+  let _flag = getNewNoteData().flag;
 
   return (new Note(_title, _desc, _date, _flag));
 };
