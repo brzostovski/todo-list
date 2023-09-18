@@ -1,3 +1,5 @@
+import page from "./page";
+
 export default (function notes() {
   return {
     projectsArr,
@@ -35,15 +37,15 @@ let Note = (function (title, description, dueDate, flag) {
 });
 
 function _createNote() {
-  let _title = document.getElementById('title').value;
-  let _desc = document.getElementById('desc').value;
-  let _date = document.getElementById('date').value;
-  let _flag = document.getElementById('flag-button').checked;
+  let _title = page().getNewNoteData().title;
+  let _desc = page().getNewNoteData().desc;
+  let _date = page().getNewNoteData().date;
+  let _flag = page().getNewNoteData().flag;
 
   return (new Note(_title, _desc, _date, _flag));
 };
 
-function addNote() {
+function addNote(project) {
   let _note = _createNote();
-  projectsArr[0].notes.push(_note);
+  project.notes.push(_note);
 };
