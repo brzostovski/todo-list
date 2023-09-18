@@ -4,9 +4,12 @@ import notes from './notes';
 import render from './render';
 
 (() => {
-  const pageContents = page().init().pageContents;
-  //render().allNotes(notes().projectsArr, pageContents.main);
-  render().projectsNotes(notes().projectsArr[0], pageContents.main);
+  const pageContents = page.init().pageContents;
+  //render().allNotes(notes.projectsArr, pageContents.main);
+  let inbox = new notes.Project('Inbox'); // this creates default project called "Inbox"
+  notes.projectsArr[0] = inbox;
+
+  render().projectsNotes(notes.projectsArr[0], pageContents.main);
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
@@ -27,12 +30,12 @@ import render from './render';
   };
 
   function addNoteBtnAction() {
-    if (!page().checkFormValidity(form)) {
+    if (!page.checkFormValidity(form)) {
       return;
     } else {
       pageContents.main.innerHTML = '';
-      notes().addNote(notes().projectsArr[0]);
-      render().projectsNotes(notes().projectsArr[0], pageContents.main);
+      notes.projectsArr[0].addNote();
+      render().projectsNotes(notes.projectsArr[0], pageContents.main);
       showFormBtn.classList.remove('hidden');
       form.classList.add('hidden');
     };
