@@ -2,7 +2,6 @@ export default (function page() {
   return {
     init,
     checkFormValidity,
-    getNewNoteData,
   };
 });
 
@@ -152,15 +151,6 @@ const init = (() => {
 
   return {
     pageContents,
-  };
-});
-
-const getNewNoteData = (function() {
-  return {
-    title: document.getElementById('title-input').value,
-    desc: document.getElementById('desc-input').value,
-    date: document.getElementById('date-input').value,
-    flag: document.getElementById('flag-btn').checked,
   };
 });
 
