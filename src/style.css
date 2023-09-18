@@ -131,7 +131,8 @@ textarea {
   align-items: center;
 }
 
-button {
+header > button,
+form button {
   all: unset;
 
   cursor: pointer;
