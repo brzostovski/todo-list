@@ -4,7 +4,6 @@ export default (function notes() {
   return {
     projectsArr,
     Project,
-    addNote,
   };
 });
 
@@ -12,9 +11,15 @@ let Project = (function (name, ...notes) {
   this.name = name;
   this.notes = notes;
 
+  function addNote() {
+    let _note = _createNote();
+    notes.push(_note);
+  };
+
   return {
     name,
     notes,
+    addNote,
   }
 });
 
@@ -52,9 +57,4 @@ function _createNote() {
   let _flag = getNewNoteData().flag;
 
   return (new Note(_title, _desc, _date, _flag));
-};
-
-function addNote(project) {
-  let _note = _createNote();
-  project.notes.push(_note);
 };
