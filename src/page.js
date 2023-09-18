@@ -107,15 +107,25 @@ const _initAside = (() => {
   let asideWrapper = document.createElement('aside');
 
   let _asideContent = {
-    home: document.createElement('div'), // this will contain link to 'homepage' showing all notes
-    flaggedNotes: document.createElement('div'), // this will display notes with flag:true
-    projects: document.createElement('div'), // this will show subfolders ('projects') and allow to create new one
+    home: {
+      elemType: 'button',
+      label: 'Home',
+    },
+    flaggedNotes: {
+      elemType: 'button',
+      label: 'Flagged Notes',
+    },
+    projects: {
+      elemType: 'button',
+      label: 'Projects',
+    },
   }
 
   Object.keys(_asideContent).forEach(key => {
-    _asideContent[key].id = key;
-    _asideContent[key].textContent = key; // this will change to display section title
-    asideWrapper.appendChild(_asideContent[key]);
+    let _newElem = document.createElement(_asideContent[key].elemType);
+    _newElem.id = key;
+    _newElem.textContent = _asideContent[key].label;
+    asideWrapper.appendChild(_newElem);
   });
 
   return asideWrapper;
