@@ -5,23 +5,24 @@ import render from './render';
 
 (() => {
   const pageContents = page().init().pageContents;
+  //render().allNotes(notes().projectsArr, pageContents.main);
   render().projectsNotes(notes().projectsArr[0], pageContents.main);
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
   const cancelBtn = document.getElementById('cancel-btn');
-  const toggleFormBtn = document.getElementById('toggle-form-btn');
+  const showFormBtn = document.getElementById('show-form-btn');
 
   const bindEvents = (function() {
     addNoteBtn.onclick = addNoteBtnAction;
-    toggleFormBtn.onclick = toggleFormBtnAction;
+    showFormBtn.onclick = showFormBtnAction;
     cancelBtn.onclick = cancelBtnAction;
   })();
 
-  function toggleFormBtnAction() {
+  function showFormBtnAction() {
     if (form.classList.contains('hidden')) {
       form.classList.remove('hidden');
-      toggleFormBtn.classList.add('hidden');
+      showFormBtn.classList.add('hidden');
     };
   };
 
@@ -30,16 +31,16 @@ import render from './render';
       return;
     } else {
       pageContents.main.innerHTML = '';
-      notes().addNote();
+      notes().addNote(notes().projectsArr[0]);
       render().projectsNotes(notes().projectsArr[0], pageContents.main);
-      toggleFormBtn.classList.remove('hidden');
+      showFormBtn.classList.remove('hidden');
       form.classList.add('hidden');
     };
   };
 
   function cancelBtnAction() {
     form.classList.add('hidden');
-    toggleFormBtn.classList.remove('hidden');
+    showFormBtn.classList.remove('hidden');
   };
 
   return {};
