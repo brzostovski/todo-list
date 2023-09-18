@@ -178,11 +178,11 @@ aside {
   grid-area: aside;
 
   background-color: var(--accent-color);
+
+  display: flex;
+  flex-direction: column;
 }
 
-aside * {
-  background-color: var(--accent-color);
-}
 
 main {
   grid-area: main;
