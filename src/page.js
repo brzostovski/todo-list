@@ -2,6 +2,7 @@ export default (function page() {
   return {
     init,
     checkFormValidity,
+    getNewNoteData,
   };
 });
 
@@ -30,7 +31,7 @@ const init = (() => {
           <input
           type="text"
           name="note-title"
-          id="title"
+          id="title-input"
           placeholder="Note title"
           required>`,
       },
@@ -39,18 +40,18 @@ const init = (() => {
         input: `
         <textarea
         name="note-description"
-        id="desc"
+        id="desc-input"
         wrap="soft"
         placeholder="Note description"
         required></textarea>`,
       },
       date: {
         label: `<label for="date">Due date:</label>`,
-        input: `<input type="text" name="due-date" id="date">`, // input will be date picker
+        input: `<input type="text" name="due-date" id="date-input">`, // input will be date picker
       },
       flag: {
         button: `<label for="flag-button">Flagged</label>
-          <input type="checkbox" id="flag-button">`, // should be stylized button that acts as toggle
+          <input type="checkbox" id="flag-btn">`, // should be stylized button that acts as toggle
       },
       buttons: {
         button: `
@@ -151,6 +152,15 @@ const init = (() => {
 
   return {
     pageContents,
+  };
+});
+
+const getNewNoteData = (function() {
+  return {
+    title: document.getElementById('title-input').value,
+    desc: document.getElementById('desc-input').value,
+    date: document.getElementById('date-input').value,
+    flag: document.getElementById('flag-btn').checked,
   };
 });
 
