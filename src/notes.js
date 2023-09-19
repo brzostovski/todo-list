@@ -1,16 +1,16 @@
 const notes = {
   notesArr: [],
-  note: (function (project = 'Inbox', title, description, dueDate, flag) {
+  Note: (function (project = 'Inbox', title, description, dueDate, flag) {
     this.project = project;
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.flag = flag;
 
-    add: (function() {
+    add = (function() {
       let _note = _createNote();
       notesArr.push(_note);
-    }),
+    });
 
     function _getNewNoteData() {
       return {
