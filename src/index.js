@@ -13,11 +13,15 @@ import render from './render';
   const addNoteBtn = document.getElementById('add-note-btn');
   const cancelBtn = document.getElementById('cancel-btn');
   const showFormBtn = document.getElementById('show-form-btn');
+  const homeBtn = document.getElementById('home');
+  const flaggedNotesBtn = document.getElementById('flaggedNotes');
 
   const bindEvents = (function() {
     addNoteBtn.onclick = addNoteBtnAction;
     showFormBtn.onclick = showFormBtnAction;
     cancelBtn.onclick = cancelBtnAction;
+    homeBtn.onclick = showAllNotes;
+    flaggedNotesBtn.onclick = showFlaggedNotes;
   })();
 
   function showFormBtnAction() {
@@ -42,6 +46,16 @@ import render from './render';
   function cancelBtnAction() {
     form.classList.add('hidden');
     showFormBtn.classList.remove('hidden');
+  };
+
+  function showAllNotes() {
+    pageContents.main.innerHTML = '';
+    render().allNotes(notes.arr, pageContents.main);
+  };
+
+  function showFlaggedNotes() {
+    pageContents.main.innerHTML = '';
+    render().flaggedNotes(notes.arr, pageContents.main);
   };
 
   return;
