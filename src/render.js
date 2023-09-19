@@ -6,6 +6,7 @@ export default (function render() {
 });
 
 let allNotes = (function(projectsArr, domElement) {
+  if (!projectsArr[0].notes[0]) return;
   for (let i = 0; i < projectsArr.length; i++) {
     projectsArr[i].project.notes.forEach(note => {
       domElement.appendChild(_noteCard(project, note).card);
