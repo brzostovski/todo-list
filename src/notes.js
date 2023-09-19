@@ -1,43 +1,44 @@
 const notes = {
-  notesArr: [],
-  Note: (function (project = 'Inbox', title, description, dueDate, flag) {
-    this.project = project;
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.flag = flag;
-
-    add = (function() {
-      let _note = _createNote();
-      notesArr.push(_note);
+  arr: [],
+  add: (function() {
+    const _Note = (function (project = 'Inbox', title, description, dueDate, flag) {
+      this.project = project;
+      this.title = title;
+      this.description = description;
+      this.dueDate = dueDate;
+      this.flag = flag;
+    
+      return {
+        project,
+        title,
+        description,
+        dueDate,
+        flag,
+      }
     });
 
     function _getNewNoteData() {
       return {
+        project: undefined,
         title: document.getElementById('title-input').value,
         desc: document.getElementById('desc-input').value,
         date: document.getElementById('date-input').value,
         flag: document.getElementById('flag-btn').checked,
       };
     };
-
+  
     function _createNote() {
+      let _project = _getNewNoteData().project;
       let _title = _getNewNoteData().title;
       let _desc = _getNewNoteData().desc;
       let _date = _getNewNoteData().date;
       let _flag = _getNewNoteData().flag;
     
-      return (new _Note(_title, _desc, _date, _flag));
+      return (new _Note(_project, _title, _desc, _date, _flag));
     };
-  
-    return {
-      project,
-      title,
-      description,
-      dueDate,
-      flag,
-      add,
-    }
+
+    let _note = _createNote();
+    notes.arr.push(_note);
   }),
 };
 
