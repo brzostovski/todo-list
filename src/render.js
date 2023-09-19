@@ -1,13 +1,21 @@
 export default (function render() {
   return {
     allNotes,
+    flaggedNotes,
   }
 });
 
-let allNotes = (function(notesArr, domElement) {
+const allNotes = (function(notesArr, domElement) {
   if (notesArr === undefined) return;
   notesArr.forEach(note => {
     domElement.appendChild(_createNoteCard(note));
+  });
+});
+
+const flaggedNotes = (function(notesArr, domElement) {
+  if (notesArr === undefined) return;
+  notesArr.forEach(note => {
+    if (note.flag === true) domElement.appendChild(_createNoteCard(note));
   });
 });
 
