@@ -6,15 +6,18 @@ import render from './render';
 (() => {
   const pageContents = page.init().pageContents;
 
-  render().allNotes(notes.arr, pageContents.main);
-  //render().projectsNotes(notes.projectsArr[0], pageContents.main);
+  const showFormBtn = document.getElementById('show-form-btn');
+
+  const flaggedNotesBtn = document.getElementById('flaggedNotes');
+  const projectsContainer = document.getElementById('projects');
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
   const cancelBtn = document.getElementById('cancel-btn');
-  const showFormBtn = document.getElementById('show-form-btn');
   const homeBtn = document.getElementById('home');
-  const flaggedNotesBtn = document.getElementById('flaggedNotes');
+
+  render().projectTabs(notes.projects, projectsContainer);
+  render().allNotes(notes.arr, pageContents.main);
 
   const bindEvents = (function() {
     addNoteBtn.onclick = addNoteBtnAction;
