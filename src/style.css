@@ -183,6 +183,10 @@ aside {
   flex-direction: column;
 }
 
+#projects {
+  display: flex;
+  flex-direction: column;
+}
 
 main {
   grid-area: main;
