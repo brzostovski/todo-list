@@ -1,19 +1,11 @@
 export default (function render() {
   return {
     projectBtns,
+    projectsDropdown,
     allNotes,
     flaggedNotes,
     projectNotes,
   }
-});
-
-const _createProjectBtn = (function(project) {
-  let _btn = document.createElement('button');
-  _btn.classList.add('project-btn');
-  _btn.id = project;
-  _btn.textContent = project;
-
-  return _btn;
 });
 
 const _createNoteCard = (function(note) {
@@ -37,9 +29,30 @@ const _createNoteCard = (function(note) {
 });
 
 const projectBtns = (function(projectsArr, domElement) {
+  const _createProjectBtn = (function(project) {
+    let _btn = document.createElement('button');
+    _btn.classList.add('project-btn');
+    _btn.id = project;
+    _btn.textContent = project;
+  
+    return _btn;
+  });
+
   projectsArr.forEach(project => {
     domElement.appendChild(_createProjectBtn(project));
   });
+});
+
+const projectsDropdown = (function(projectsArr, input) {
+  let _begin = '<select name="notes-project" id="project-input">';
+  let _options = '';
+  let _end = '</select>';
+
+  projectsArr.forEach(project => {
+    _options += (`<option value="${project}">${project}</option>`);
+  });
+
+  input.innerHTML = _begin + _options + _end;
 });
 
 const allNotes = (function(notesArr, domElement) {
