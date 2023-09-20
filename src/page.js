@@ -87,8 +87,8 @@ const page = {
           label: 'Flagged Notes',
         },
         projects: {
-          elemType: 'button',
-          label: 'Projects',
+          elemType: 'div',
+          label: 'Projects:',
         },
       }
     
