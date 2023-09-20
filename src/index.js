@@ -13,9 +13,11 @@ import render from './render';
   const projectsContainer = document.getElementById('projects');
 
   const form = document.querySelector('form');
+  const dropdown = document.getElementById('project-input');
   const addNoteBtn = document.getElementById('add-note-btn');
   const cancelBtn = document.getElementById('cancel-btn');
 
+  render().projectsDropdown(notes.projects, dropdown);
   render().projectBtns(notes.projects, projectsContainer);
   let projectShowBtns = document.querySelectorAll('.project-btn');
 
