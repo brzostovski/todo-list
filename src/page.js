@@ -20,12 +20,7 @@ const page = {
       let _formContent = {
         project: {
           label: `<label for="project-input">Project:</label>`,
-          input: `
-          <input
-          type="text"
-          name="notes-project"
-          id="project-input"
-          value="Inbox">`,
+          input: `<select name="notes-project" id="project-input"></select>`,
         },
         title: {
           label: `<label for="title-input">Title:</label>`,
@@ -49,7 +44,7 @@ const page = {
         },
         date: {
           label: `<label for="date-input">Due date:</label>`,
-          input: `<input type="text" name="due-date" id="date-input">`, // input will be date picker
+          input: `<input type="date" name="due-date" id="date-input">`, // input will be date picker
         },
         flag: {
           button: `<label for="flag-button">Flagged</label>
