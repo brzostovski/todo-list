@@ -1,18 +1,19 @@
 export default (function render() {
   return {
-    projectTabs,
+    projectBtns,
     allNotes,
     flaggedNotes,
+    projectNotes,
   }
 });
 
-const _createProjectTab = (function(project) {
-  let _tab = document.createElement('button');
-  _tab.classList.add('project-tab');
-  _tab.id = 'project-' + project;
-  _tab.textContent = project;
+const _createProjectBtn = (function(project) {
+  let _btn = document.createElement('button');
+  _btn.classList.add('project-btn');
+  _btn.id = project;
+  _btn.textContent = project;
 
-  return _tab;
+  return _btn;
 });
 
 const _createNoteCard = (function(note) {
@@ -35,9 +36,9 @@ const _createNoteCard = (function(note) {
   return _card;
 });
 
-const projectTabs = (function(projectsArr, domElement) {
+const projectBtns = (function(projectsArr, domElement) {
   projectsArr.forEach(project => {
-    domElement.appendChild(_createProjectTab(project));
+    domElement.appendChild(_createProjectBtn(project));
   });
 });
 
@@ -52,5 +53,12 @@ const flaggedNotes = (function(notesArr, domElement) {
   if (notesArr === undefined) return;
   notesArr.forEach(note => {
     if (note.flag === true) domElement.appendChild(_createNoteCard(note));
+  });
+});
+
+const projectNotes = (function(project, notesArr, domElement) {
+  if (notesArr === undefined) return;
+  notesArr.forEach(note => {
+    if (note.project === project) domElement.appendChild(_createNoteCard(note));
   });
 });
