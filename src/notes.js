@@ -1,8 +1,8 @@
 const notes = {
   arr: [],
-  projects: ['Inbox'],
+  projects: ['Inbox', 'test'],
   add: (function() {
-    const _Note = (function (project = notes.projects[0], title, description, dueDate, flag) {
+    const _Note = (function (project, title, description, dueDate, flag) {
       this.project = project;
       this.title = title;
       this.description = description;
@@ -20,7 +20,7 @@ const notes = {
 
     function _getNewNoteData() {
       return {
-        project: undefined,
+        project: document.getElementById('project-input').value,
         title: document.getElementById('title-input').value,
         desc: document.getElementById('desc-input').value,
         date: document.getElementById('date-input').value,
