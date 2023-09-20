@@ -1,6 +1,6 @@
 const notes = {
   arr: [],
-  projects: ['Inbox', 'test'],
+  projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
   add: (function() {
     const _Note = (function (project, title, description, dueDate, flag) {
       this.project = project;
