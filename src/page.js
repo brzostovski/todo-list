@@ -18,8 +18,17 @@ const page = {
       _headerContent.showForm.id = 'show-form-btn';
     
       let _formContent = {
+        project: {
+          label: `<label for="project-input">Project:</label>`,
+          input: `
+          <input
+          type="text"
+          name="notes-project"
+          id="project-input"
+          value="Inbox">`,
+        },
         title: {
-          label: `<label for="title">Title:</label>`,
+          label: `<label for="title-input">Title:</label>`,
           input: `
             <input
             type="text"
@@ -29,7 +38,7 @@ const page = {
             required>`,
         },
         description: {
-          label: `<label for="desc">Description:</label>`,
+          label: `<label for="desc-input">Description:</label>`,
           input: `
           <textarea
           name="note-description"
@@ -39,7 +48,7 @@ const page = {
           required></textarea>`,
         },
         date: {
-          label: `<label for="date">Due date:</label>`,
+          label: `<label for="date-input">Due date:</label>`,
           input: `<input type="text" name="due-date" id="date-input">`, // input will be date picker
         },
         flag: {
