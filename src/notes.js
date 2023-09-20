@@ -1,5 +1,6 @@
 const notes = {
   arr: [],
+  projects: ['Inbox'],
   add: (function() {
     const _Note = (function (project = 'Inbox', title, description, dueDate, flag) {
       this.project = project;
