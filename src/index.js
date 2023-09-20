@@ -8,15 +8,17 @@ import render from './render';
 
   const showFormBtn = document.getElementById('show-form-btn');
 
+  const homeBtn = document.getElementById('home');
   const flaggedNotesBtn = document.getElementById('flaggedNotes');
   const projectsContainer = document.getElementById('projects');
 
   const form = document.querySelector('form');
   const addNoteBtn = document.getElementById('add-note-btn');
   const cancelBtn = document.getElementById('cancel-btn');
-  const homeBtn = document.getElementById('home');
 
-  render().projectTabs(notes.projects, projectsContainer);
+  render().projectBtns(notes.projects, projectsContainer);
+  let projectShowBtns = document.querySelectorAll('.project-btn');
+
   render().allNotes(notes.arr, pageContents.main);
 
   const bindEvents = (function() {
@@ -25,6 +27,11 @@ import render from './render';
     cancelBtn.onclick = cancelBtnAction;
     homeBtn.onclick = showAllNotes;
     flaggedNotesBtn.onclick = showFlaggedNotes;
+    projectShowBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        showProjectNotes(btn.id);
+      })
+    });
   })();
 
   function showFormBtnAction() {
@@ -59,6 +66,11 @@ import render from './render';
   function showFlaggedNotes() {
     pageContents.main.innerHTML = '';
     render().flaggedNotes(notes.arr, pageContents.main);
+  };
+
+  function showProjectNotes(project) {
+    pageContents.main.innerHTML = '';
+    render().projectNotes(project, notes.arr, pageContents.main);
   };
 
   return;
