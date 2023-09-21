@@ -1,17 +1,14 @@
-import { nanoid } from "nanoid";
-
 const notes = {
   arr: [],
   projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
-  add: (function() {
-    const _Note = (function (project, title, description, dueDate, flag) {
+  add: (function(id) {
+    const _Note = (function (project, title, description, dueDate, flag, id) {
       this.project = project;
       this.title = title;
       this.description = description;
       this.dueDate = dueDate;
       this.flag = flag;
-
-      let id = nanoid();
+      this.id = id;
     
       return {
         project,
@@ -33,17 +30,17 @@ const notes = {
       };
     };
   
-    function _createNote() {
+    function _createNote(id) {
       let _project = _getNewNoteData().project;
       let _title = _getNewNoteData().title;
       let _desc = _getNewNoteData().desc;
       let _date = _getNewNoteData().date;
       let _flag = _getNewNoteData().flag;
     
-      return (new _Note(_project, _title, _desc, _date, _flag));
+      return (new _Note(_project, _title, _desc, _date, _flag, id));
     };
 
-    let _note = _createNote();
+    let _note = _createNote(id);
     notes.arr.push(_note);
   }),
 };
