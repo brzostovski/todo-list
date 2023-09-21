@@ -2,6 +2,7 @@ import './style.css';
 import page from "./page";
 import notes from './notes';
 import render from './render';
+import { nanoid } from 'nanoid';
 
 (() => {
   const pageContents = page.init().pageContents;
@@ -24,8 +25,8 @@ import render from './render';
   render().allNotes(notes.arr, pageContents.main);
 
   const bindEvents = (function() {
-    addNoteBtn.onclick = addNoteBtnAction;
     showFormBtn.onclick = showFormBtnAction;
+    addNoteBtn.onclick = addNoteBtnAction;
     cancelBtn.onclick = cancelBtnAction;
     homeBtn.onclick = showAllNotes;
     flaggedNotesBtn.onclick = showFlaggedNotes;
@@ -47,7 +48,7 @@ import render from './render';
     if (!page.checkFormValidity(form)) {
       return;
     } else {
-      notes.add();
+      notes.add(nanoid());
       pageContents.main.innerHTML = '';
       render().allNotes(notes.arr, pageContents.main);
       showFormBtn.classList.remove('hidden');
