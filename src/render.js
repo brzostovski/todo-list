@@ -11,10 +11,14 @@ export default (function render() {
 const _createNoteCard = (function(note) {
   let _card = document.createElement('div');
   _card.classList.add('note');
+  _card.id = note.id;
 
   Object.keys(note).forEach(key => {
+    if (key === 'id') return;
+
     let _section = document.createElement('div');
     _section.classList.add(key);
+
     if (key === 'flag') {
       (note[key] === true)
       ? (_section.textContent = '⚑')
