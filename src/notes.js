@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 const notes = {
   arr: [],
   projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
@@ -8,6 +10,8 @@ const notes = {
       this.description = description;
       this.dueDate = dueDate;
       this.flag = flag;
+
+      let id = nanoid();
     
       return {
         project,
@@ -15,6 +19,7 @@ const notes = {
         description,
         dueDate,
         flag,
+        id,
       }
     });
 
