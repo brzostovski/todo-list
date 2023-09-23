@@ -2,7 +2,13 @@ const todos = {
   arr: [],
   completed: [],
   projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
-  add: (function(id) {
+  isNewProject: (function(projectName) {
+    for (let i = 0; i < todos.projects.length; i++) {
+      if (todos.projects[i] === projectName) return false;
+    };
+    return true;
+  }),
+  create: (function(id) {
     const _Todo = (function (project, title, description, dueDate, flag, id) {
       this.project = project;
       this.title = title;
@@ -36,27 +42,20 @@ const todos = {
         flag: document.getElementById('flag-btn').checked,
       };
     };
-
-    function _isNewProject(projectName) {
-      for (let i = 0; i < todos.projects.length; i++) {
-        if (todos.projects[i] === projectName) return false;
-      };
-      return true;
-    }
-  
-    function _createTodo(id) {
-      let _project = _getNewTodoData().project;
-      let _title = _getNewTodoData().title;
-      let _desc = _getNewTodoData().desc;
-      let _date = _getNewTodoData().date;
-      let _flag = _getNewTodoData().flag;
     
-      return (new _Todo(_project, _title, _desc, _date, _flag, id));
-    };
+    let newTodo = new _Todo(
+      _getNewTodoData().project,
+      _getNewTodoData().title,
+      _getNewTodoData().desc,
+      _getNewTodoData().date,
+      _getNewTodoData().flag,
+      id
+    )
 
-    let _todo = _createTodo(id);
-    todos.arr.push(_todo);
-    if (_isNewProject(_todo.project)) todos.projects.push(_todo.project);
+    return (newTodo);
+  }),
+  add: (function(todo) {
+    todos.arr.push(todo);
   }),
 };
 
