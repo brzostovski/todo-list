@@ -14,46 +14,46 @@ const page = {
     
       _headerContent.title.textContent = 'Project: Todo List';
       _headerContent.form.classList.add('hidden');
-      _headerContent.showForm.textContent = 'New note';
+      _headerContent.showForm.textContent = 'New todo';
       _headerContent.showForm.id = 'show-form-btn';
     
       let _formContent = {
         project: {
           label: `<label for="project-input">Project:</label>`,
-          input: `<select name="notes-project" id="project-input"></select>`,
+          input: `<select name="todos-project" id="project-input"></select>`,
         },
         title: {
           label: `<label for="title-input">Title:</label>`,
           input: `
             <input
             type="text"
-            name="note-title"
+            name="todo-title"
             id="title-input"
-            placeholder="Note title"
+            placeholder="Todo title"
             required>`,
         },
         description: {
           label: `<label for="desc-input">Description:</label>`,
           input: `
           <textarea
-          name="note-description"
+          name="todo-description"
           id="desc-input"
           wrap="soft"
-          placeholder="Note description"
+          placeholder="Todo description"
           required></textarea>`,
         },
         date: {
           label: `<label for="date-input">Due date:</label>`,
-          input: `<input type="date" name="due-date" id="date-input">`, // input will be date picker
+          input: `<input type="date" name="due-date" id="date-input">`,
         },
         flag: {
           button: `<label for="flag-button">Flagged</label>
-            <input type="checkbox" id="flag-btn">`, // should be stylized button that acts as toggle
+            <input type="checkbox" id="flag-btn">`,
         },
         buttons: {
           button: `
             <div id="btn-container">
-              <button type="button" id="add-note-btn">Add note!</button>
+              <button type="button" id="add-todo-btn">Add todo!</button>
               <button type="button" id="cancel-btn">Cancel</button>
             </div>
           `,
@@ -86,9 +86,9 @@ const page = {
           elemType: 'button',
           label: 'Home',
         },
-        flaggedNotes: {
+        flaggedTodos: {
           elemType: 'button',
-          label: 'Flagged Notes',
+          label: 'Flagged Todos',
         },
         projects: {
           elemType: 'div',

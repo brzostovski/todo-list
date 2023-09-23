@@ -4,7 +4,7 @@
   --main-bg-color: rgb(69, 69, 69);
   --main-shadow-color: rgba(0, 0, 0, 0.5);
   --banner-bg-color: rgb(26, 26, 26);
-  --note-bg-color: rgba(30, 144, 255, 0.2);
+  --todo-bg-color: rgba(30, 144, 255, 0.2);
   --accent-color: dodgerblue;
   --bg-click-color: brightness(0.7);
   --pop-up-color: rgba(255, 255, 255, 0.2);
@@ -12,7 +12,7 @@
 
   /* DIMENSIONS */
   --main-margin: 20px;
-  --note-margin: 10px;
+  --todo-margin: 10px;
   --main-padding: 10px;
   --main-border-radius: 10px;
   --input-border-radius: 4px;
@@ -183,6 +183,10 @@ aside {
   flex-direction: column;
 }
 
+aside > div {
+  background-color: transparent;
+}
+
 #projects {
   display: flex;
   flex-direction: column;
@@ -205,27 +209,27 @@ main {
   gap: 10px;
 }
 
-.note > * {
-  margin: var(--note-margin);
+.todo > * {
+  margin: var(--todo-margin);
   background-color: transparent;
 }
 
-.note {
+.todo {
   min-width: 200px;
   max-width: 800px;
 
-  background-color: var(--note-bg-color);
+  background-color: var(--todo-bg-color);
 
   box-shadow: var(--main-shadow);
 
   border-radius: var(--main-border-radius);
 }
 
-.note > .title {
+.todo > .title {
   font-weight: bold;
 }
 
-.note > .description {
+.todo > .description {
   font-style: italic;
 }
 

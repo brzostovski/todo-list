@@ -2,34 +2,34 @@ export default (function render() {
   return {
     projectBtns,
     projectsDropdown,
-    allNotes,
-    flaggedNotes,
-    projectNotes,
+    allTodos,
+    flaggedTodos,
+    projectTodos,
   }
 });
 
-const _createNoteCard = (function(note) {
-  let _card = document.createElement('div');
-  _card.classList.add('note');
-  _card.id = note.id;
+const _createTodoCard = (function(todo) {
+  let _todo = document.createElement('div');
+  _todo.classList.add('todo');
+  _todo.id = todo.id;
 
-  Object.keys(note).forEach(key => {
+  Object.keys(todo).forEach(key => {
     if (key === 'id') return;
 
     let _section = document.createElement('div');
     _section.classList.add(key);
 
     if (key === 'flag') {
-      (note[key] === true)
+      (todo[key] === true)
       ? (_section.textContent = '⚑')
       : (_section.textContent = '⚐')
     } else {
-      _section.textContent = note[key];
+      _section.textContent = todo[key];
     }
-    _card.appendChild(_section);
+    _todo.appendChild(_section);
   });
 
-  return _card;
+  return _todo;
 });
 
 const projectBtns = (function(projectsArr, domElement) {
@@ -59,23 +59,23 @@ const projectsDropdown = (function(projectsArr, input) {
   input.innerHTML = _begin + _options + _end;
 });
 
-const allNotes = (function(notesArr, domElement) {
-  if (notesArr === undefined) return;
-  notesArr.forEach(note => {
-    domElement.appendChild(_createNoteCard(note));
+const allTodos = (function(todosArr, domElement) {
+  if (todosArr === undefined) return;
+  todosArr.forEach(todo => {
+    domElement.appendChild(_createTodoCard(todo));
   });
 });
 
-const flaggedNotes = (function(notesArr, domElement) {
-  if (notesArr === undefined) return;
-  notesArr.forEach(note => {
-    if (note.flag === true) domElement.appendChild(_createNoteCard(note));
+const flaggedTodos = (function(todosArr, domElement) {
+  if (todosArr === undefined) return;
+  todosArr.forEach(todo => {
+    if (todo.flag === true) domElement.appendChild(_createTodoCard(todo));
   });
 });
 
-const projectNotes = (function(project, notesArr, domElement) {
-  if (notesArr === undefined) return;
-  notesArr.forEach(note => {
-    if (note.project === project) domElement.appendChild(_createNoteCard(note));
+const projectTodos = (function(project, todosArr, domElement) {
+  if (todosArr === undefined) return;
+  todosArr.forEach(todo => {
+    if (todo.project === project) domElement.appendChild(_createTodoCard(todo));
   });
 });

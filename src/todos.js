@@ -1,8 +1,8 @@
-const notes = {
+const todos = {
   arr: [],
   projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
   add: (function(id) {
-    const _Note = (function (project, title, description, dueDate, flag, id) {
+    const _Todo = (function (project, title, description, dueDate, flag, id) {
       this.project = project;
       this.title = title;
       this.description = description;
@@ -20,7 +20,7 @@ const notes = {
       }
     });
 
-    function _getNewNoteData() {
+    function _getNewTodoData() {
       return {
         project: document.getElementById('project-input').value,
         title: document.getElementById('title-input').value,
@@ -30,19 +30,19 @@ const notes = {
       };
     };
   
-    function _createNote(id) {
-      let _project = _getNewNoteData().project;
-      let _title = _getNewNoteData().title;
-      let _desc = _getNewNoteData().desc;
-      let _date = _getNewNoteData().date;
-      let _flag = _getNewNoteData().flag;
+    function _createTodo(id) {
+      let _project = _getNewTodoData().project;
+      let _title = _getNewTodoData().title;
+      let _desc = _getNewTodoData().desc;
+      let _date = _getNewTodoData().date;
+      let _flag = _getNewTodoData().flag;
     
-      return (new _Note(_project, _title, _desc, _date, _flag, id));
+      return (new _Todo(_project, _title, _desc, _date, _flag, id));
     };
 
-    let _note = _createNote(id);
-    notes.arr.push(_note);
+    let _todo = _createTodo(id);
+    todos.arr.push(_todo);
   }),
 };
 
-export default notes;
+export default todos;

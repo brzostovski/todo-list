@@ -1,6 +1,6 @@
 import './style.css';
 import page from "./page";
-import notes from './notes';
+import todos from './todos';
 import render from './render';
 import { nanoid } from 'nanoid';
 
@@ -10,29 +10,29 @@ import { nanoid } from 'nanoid';
   const showFormBtn = document.getElementById('show-form-btn');
 
   const homeBtn = document.getElementById('home');
-  const flaggedNotesBtn = document.getElementById('flaggedNotes');
+  const flaggedTodosBtn = document.getElementById('flaggedTodos');
   const projectsContainer = document.getElementById('projects');
 
   const form = document.querySelector('form');
   const dropdown = document.getElementById('project-input');
-  const addNoteBtn = document.getElementById('add-note-btn');
+  const addTodoBtn = document.getElementById('add-todo-btn');
   const cancelBtn = document.getElementById('cancel-btn');
 
-  render().projectsDropdown(notes.projects, dropdown);
-  render().projectBtns(notes.projects, projectsContainer);
+  render().projectsDropdown(todos.projects, dropdown);
+  render().projectBtns(todos.projects, projectsContainer);
   let projectShowBtns = document.querySelectorAll('.project-btn');
 
-  render().allNotes(notes.arr, pageContents.main);
+  render().allTodos(todos.arr, pageContents.main);
 
   const bindEvents = (function() {
     showFormBtn.onclick = showFormBtnAction;
-    addNoteBtn.onclick = addNoteBtnAction;
+    addTodoBtn.onclick = addTodoBtnAction;
     cancelBtn.onclick = cancelBtnAction;
-    homeBtn.onclick = showAllNotes;
-    flaggedNotesBtn.onclick = showFlaggedNotes;
+    homeBtn.onclick = showAllTodos;
+    flaggedTodosBtn.onclick = showFlaggedTodos;
     projectShowBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        showProjectNotes(btn.id);
+        showProjectTodos(btn.id);
       })
     });
   })();
@@ -44,13 +44,13 @@ import { nanoid } from 'nanoid';
     };
   };
 
-  function addNoteBtnAction() {
+  function addTodoBtnAction() {
     if (!page.checkFormValidity(form)) {
       return;
     } else {
-      notes.add(nanoid());
+      todos.add(nanoid());
       pageContents.main.innerHTML = '';
-      render().allNotes(notes.arr, pageContents.main);
+      render().allTodos(todos.arr, pageContents.main);
       showFormBtn.classList.remove('hidden');
       form.classList.add('hidden');
     };
@@ -61,19 +61,19 @@ import { nanoid } from 'nanoid';
     showFormBtn.classList.remove('hidden');
   };
 
-  function showAllNotes() {
+  function showAllTodos() {
     pageContents.main.innerHTML = '';
-    render().allNotes(notes.arr, pageContents.main);
+    render().allTodos(todos.arr, pageContents.main);
   };
 
-  function showFlaggedNotes() {
+  function showFlaggedTodos() {
     pageContents.main.innerHTML = '';
-    render().flaggedNotes(notes.arr, pageContents.main);
+    render().flaggedTodos(todos.arr, pageContents.main);
   };
 
-  function showProjectNotes(project) {
+  function showProjectTodos(project) {
     pageContents.main.innerHTML = '';
-    render().projectNotes(project, notes.arr, pageContents.main);
+    render().projectTodos(project, todos.arr, pageContents.main);
   };
 
   return;
