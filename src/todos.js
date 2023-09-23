@@ -1,7 +1,7 @@
 const todos = {
   arr: [],
   completed: [],
-  projects: ['Inbox', 'test', 'TEST_77', '<em>BOLD</em>'],
+  projects: [],
   isNewProject: (function(projectName) {
     for (let i = 0; i < todos.projects.length; i++) {
       if (todos.projects[i] === projectName) return false;
