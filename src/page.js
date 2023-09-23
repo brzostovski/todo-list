@@ -94,7 +94,11 @@ const page = {
         },
         flaggedTodos: {
           elemType: 'button',
-          label: 'Flagged Todos',
+          label: 'Flagged',
+        },
+        completedTodos: {
+          elemType: 'button',
+          label: 'Completed',
         },
         projects: {
           elemType: 'div',
