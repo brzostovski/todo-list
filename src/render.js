@@ -47,16 +47,10 @@ const projectBtns = (function(projectsArr, domElement) {
   });
 });
 
-const projectsDropdown = (function(projectsArr, input) {
-  let _begin = '<select name="notes-project" id="project-input">';
-  let _options = '';
-  let _end = '</select>';
-
+const projectsDropdown = (function(projectsArr, datalist) { // rename to projectsDropdown
   projectsArr.forEach(project => {
-    _options += (`<option value="${project}">${project}</option>`);
-  });
-
-  input.innerHTML = _begin + _options + _end;
+    datalist.innerHTML += `<option value="${project}">${project}</option>`;
+  })
 });
 
 const allTodos = (function(todosArr, domElement) {
