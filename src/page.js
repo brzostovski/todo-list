@@ -20,7 +20,14 @@ const page = {
       let _formContent = {
         project: {
           label: `<label for="project-input">Project:</label>`,
-          input: `<select name="todos-project" id="project-input"></select>`,
+          input: `
+          <input
+          type="text"
+          list="projects-list"
+          name="todos-project"
+          id="project-input"
+          value="Inbox">
+          <datalist id="projects-list"></datalist>`,
         },
         title: {
           label: `<label for="title-input">Title:</label>`,
@@ -39,8 +46,7 @@ const page = {
           name="todo-description"
           id="desc-input"
           wrap="soft"
-          placeholder="Todo description"
-          required></textarea>`,
+          placeholder="Todo description"></textarea>`,
         },
         date: {
           label: `<label for="date-input">Due date:</label>`,
