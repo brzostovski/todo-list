@@ -18,7 +18,9 @@ import { nanoid } from 'nanoid';
   const addTodoBtn = document.getElementById('add-todo-btn');
   const cancelBtn = document.getElementById('cancel-btn');
 
-  render().projectBtns(todos.projects, projectsContainer);
+  todos.projects.forEach(project => {
+    render().projectBtn(project, projectsContainer);
+  })
   let projectShowBtns = document.querySelectorAll('.project-btn');
 
   render().allTodos(todos.arr, pageContents.main);
@@ -48,8 +50,19 @@ import { nanoid } from 'nanoid';
     if (!page.checkFormValidity(form)) {
       return;
     } else {
-      todos.add(nanoid());
-      pageContents.main.innerHTML = '';
+      let newTodo = todos.create(nanoid());
+      todos.add(newTodo);
+
+      if (todos.isNewProject(newTodo.project)) {
+        todos.projects.push(newTodo.project);
+        render().projectBtn(newTodo.project, projectsContainer);
+        
+        let newBtn = document.getElementById(newTodo.project);
+        newBtn.addEventListener('click', () => {
+          showProjectTodos(newBtn.id);
+        });
+      };
+
       render().allTodos(todos.arr, pageContents.main);
       showFormBtn.classList.remove('hidden');
       form.classList.add('hidden');
@@ -62,17 +75,14 @@ import { nanoid } from 'nanoid';
   };
 
   function showAllTodos() {
-    pageContents.main.innerHTML = '';
     render().allTodos(todos.arr, pageContents.main);
   };
 
   function showFlaggedTodos() {
-    pageContents.main.innerHTML = '';
     render().flaggedTodos(todos.arr, pageContents.main);
   };
 
   function showProjectTodos(project) {
-    pageContents.main.innerHTML = '';
     render().projectTodos(project, todos.arr, pageContents.main);
   };
 
