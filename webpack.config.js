@@ -7,7 +7,7 @@ module.exports = {
     index: './src/index.js',
     page: './src/page.js',
     render: './src/render.js',
-    notes: './src/notes.js',
+    todos: './src/todos.js',
   },
   devtool: 'inline-source-map',
   plugins: [
