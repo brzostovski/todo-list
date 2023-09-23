@@ -14,11 +14,10 @@ import { nanoid } from 'nanoid';
   const projectsContainer = document.getElementById('projects');
 
   const form = document.querySelector('form');
-  const dropdown = document.getElementById('project-input');
+  const datalist = document.getElementById('projects-list');
   const addTodoBtn = document.getElementById('add-todo-btn');
   const cancelBtn = document.getElementById('cancel-btn');
 
-  render().projectsDropdown(todos.projects, dropdown);
   render().projectBtns(todos.projects, projectsContainer);
   let projectShowBtns = document.querySelectorAll('.project-btn');
 
@@ -42,6 +41,7 @@ import { nanoid } from 'nanoid';
       form.classList.remove('hidden');
       showFormBtn.classList.add('hidden');
     };
+    render().projectsDropdown(todos.projects, datalist);
   };
 
   function addTodoBtnAction() {
