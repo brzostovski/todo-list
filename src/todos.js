@@ -21,8 +21,10 @@ const todos = {
     });
 
     function _getNewTodoData() {
+      let project = document.getElementById('project-input').value;
+      if (project === '') project = 'Inbox';
       return {
-        project: document.getElementById('project-input').value,
+        project,
         title: document.getElementById('title-input').value,
         desc: document.getElementById('desc-input').value,
         date: document.getElementById('date-input').value,
