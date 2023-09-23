@@ -1,6 +1,6 @@
 export default (function render() {
   return {
-    projectBtns,
+    projectBtn,
     projectsDropdown,
     allTodos,
     flaggedTodos,
@@ -11,7 +11,7 @@ export default (function render() {
 const _createTodoCard = (function(todo) {
   let _todo = document.createElement('div');
   _todo.classList.add('todo');
-  _todo.id = todo.id;
+  _todo.dataset.todoId = todo.id; //use dataset to link cards, buttons to todos and projects
 
   Object.keys(todo).forEach(key => {
     if (key === 'id') return;
@@ -32,7 +32,7 @@ const _createTodoCard = (function(todo) {
   return _todo;
 });
 
-const projectBtns = (function(projectsArr, domElement) {
+const projectBtn = (function(project, domElement) {
   const _createProjectBtn = (function(project) {
     let _btn = document.createElement('button');
     _btn.classList.add('project-btn');
@@ -42,12 +42,11 @@ const projectBtns = (function(projectsArr, domElement) {
     return _btn;
   });
 
-  projectsArr.forEach(project => {
-    domElement.appendChild(_createProjectBtn(project));
-  });
+  domElement.appendChild(_createProjectBtn(project));
 });
 
-const projectsDropdown = (function(projectsArr, datalist) { // rename to projectsDropdown
+const projectsDropdown = (function(projectsArr, datalist) {
+  datalist.innerHTML = '';
   projectsArr.forEach(project => {
     datalist.innerHTML += `<option value="${project}">${project}</option>`;
   })
@@ -55,6 +54,7 @@ const projectsDropdown = (function(projectsArr, datalist) { // rename to project
 
 const allTodos = (function(todosArr, domElement) {
   if (todosArr === undefined) return;
+  domElement.innerHTML = '';
   todosArr.forEach(todo => {
     domElement.appendChild(_createTodoCard(todo));
   });
@@ -62,6 +62,7 @@ const allTodos = (function(todosArr, domElement) {
 
 const flaggedTodos = (function(todosArr, domElement) {
   if (todosArr === undefined) return;
+  domElement.innerHTML = '';
   todosArr.forEach(todo => {
     if (todo.flag === true) domElement.appendChild(_createTodoCard(todo));
   });
@@ -69,6 +70,7 @@ const flaggedTodos = (function(todosArr, domElement) {
 
 const projectTodos = (function(project, todosArr, domElement) {
   if (todosArr === undefined) return;
+  domElement.innerHTML = '';
   todosArr.forEach(todo => {
     if (todo.project === project) domElement.appendChild(_createTodoCard(todo));
   });
