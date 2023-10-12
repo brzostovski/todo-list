@@ -13,6 +13,14 @@ const _createTodoCard = (function(todo) {
   _todo.classList.add('todo');
   _todo.dataset.todoId = todo.id; //use dataset to link cards, buttons to todos and projects
 
+  let _completedBtn = document.createElement('button');
+  _completedBtn.classList.add('completed-btn');
+  _completedBtn.dataset.todoId = todo.id;
+  _completedBtn.textContent = 'Completed';
+
+  let _noteContent = document.createElement('div');
+  _noteContent.classList.add('note-content');
+
   Object.keys(todo).forEach(key => {
     if (key === 'id') return;
 
@@ -26,8 +34,17 @@ const _createTodoCard = (function(todo) {
     } else {
       _section.textContent = todo[key];
     }
-    _todo.appendChild(_section);
+    _noteContent.appendChild(_section);
   });
+
+  let _deleteNoteBtn = document.createElement('button');
+  _deleteNoteBtn.classList.add('delete-note-btn');
+  _deleteNoteBtn.dataset.todoId = todo.id;
+  _deleteNoteBtn.textContent = 'Delete note';
+
+  _todo.appendChild(_completedBtn);
+  _todo.appendChild(_noteContent);
+  _todo.appendChild(_deleteNoteBtn);
 
   return _todo;
 });
