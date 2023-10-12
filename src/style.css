@@ -209,7 +209,7 @@ main {
   gap: 10px;
 }
 
-.todo > * {
+.todo * {
   margin: var(--todo-margin);
   background-color: transparent;
 }
