@@ -209,11 +209,6 @@ main {
   gap: 10px;
 }
 
-.todo * {
-  margin: var(--todo-margin);
-  background-color: transparent;
-}
-
 .todo {
   min-width: 200px;
   max-width: 800px;
@@ -223,6 +218,14 @@ main {
   box-shadow: var(--main-shadow);
 
   border-radius: var(--main-border-radius);
+
+  display: grid;
+  grid-template: 1fr / 1fr 10fr 1fr 1fr;
+}
+
+.todo * {
+  margin: var(--todo-margin);
+  background-color: transparent;
 }
 
 .todo > .title {
