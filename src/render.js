@@ -37,14 +37,20 @@ const _createTodoCard = (function(todo) {
     _noteContent.appendChild(_section);
   });
 
-  let _deleteNoteBtn = document.createElement('button');
-  _deleteNoteBtn.classList.add('delete-note-btn');
-  _deleteNoteBtn.dataset.todoId = todo.id;
-  _deleteNoteBtn.textContent = 'Delete note';
+  let _editTodoBtn = document.createElement('button');
+  _editTodoBtn.classList.add('edit-todo-btn');
+  _editTodoBtn.dataset.todoId = todo.id;
+  _editTodoBtn.textContent = 'Edit';
+
+  let _deleteTodoBtn = document.createElement('button');
+  _deleteTodoBtn.classList.add('delete-todo-btn');
+  _deleteTodoBtn.dataset.todoId = todo.id;
+  _deleteTodoBtn.textContent = 'Delete todo';
 
   _todo.appendChild(_completedBtn);
   _todo.appendChild(_noteContent);
-  _todo.appendChild(_deleteNoteBtn);
+  _todo.appendChild(_editTodoBtn);
+  _todo.appendChild(_deleteTodoBtn);
 
   return _todo;
 });
