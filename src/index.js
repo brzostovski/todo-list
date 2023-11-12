@@ -47,26 +47,33 @@ import { nanoid } from 'nanoid';
   };
 
   function addTodoBtnAction() {
-    if (!page.checkFormValidity(form)) {
-      return;
-    } else {
-      let newTodo = todos.create(nanoid());
-      todos.add(newTodo);
+    if (!page.checkFormValidity(form)) return;
+    
+    let newTodo = todos.create(nanoid());
+    todos.add(newTodo);
 
-      if (todos.isNewProject(newTodo.project)) {
-        todos.projects.push(newTodo.project);
-        render().projectBtn(newTodo.project, projectsContainer);
-        
-        let newBtn = document.getElementById(newTodo.project);
-        newBtn.addEventListener('click', () => {
-          showProjectTodos(newBtn.id);
-        });
-      };
-
-      render().allTodos(todos.arr, pageContents.main);
-      showFormBtn.classList.remove('hidden');
-      form.classList.add('hidden');
+    if (todos.isNewProject(newTodo.project)) {
+      todos.projects.push(newTodo.project);
+      render().projectBtn(newTodo.project, projectsContainer);
+      
+      let newBtn = document.getElementById(newTodo.project);
+      newBtn.addEventListener('click', () => {
+        showProjectTodos(newBtn.id);
+      });
     };
+
+    render().allTodos(todos.arr, pageContents.main);
+
+    let visTodos = document.querySelectorAll('.todo');
+    visTodos.forEach(todo => {
+      todo.querySelector('.delete-todo-btn').onclick = () => console.log('delete todo');
+      todo.querySelector('.completed-btn').onclick = () => console.log('complete todo');
+      todo.querySelector('.edit-todo-btn').onclick = () => console.log('edit todo');
+    });
+
+    showFormBtn.classList.remove('hidden');
+    form.classList.add('hidden');
+    
   };
 
   function cancelBtnAction() {
