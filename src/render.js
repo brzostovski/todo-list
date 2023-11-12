@@ -23,14 +23,14 @@ const _createTodoCard = (function(todo) {
 
   Object.keys(todo).forEach(key => {
     if (key === 'id') return;
+    if (key === 'completed') return;
 
     let _section = document.createElement('div');
     _section.classList.add(key);
 
     if (key === 'flag') {
-      (todo[key] === true)
-      ? (_section.textContent = '⚑')
-      : (_section.textContent = '⚐')
+      let _flagIcon = '';
+      if (todo[key] === true) _section.textContent = '⚑';
     } else {
       _section.textContent = todo[key];
     }
