@@ -9,13 +9,21 @@ const todos = {
     return true;
   }),
   create: (function(id) {
-    const _Todo = (function (project, title, description, dueDate, flag, id) {
+    const _Todo = (function (
+    project,
+    title,
+    description,
+    dueDate,
+    flag,
+    id,
+    completed,) {
       this.project = project;
       this.title = title;
       this.description = description;
       this.dueDate = dueDate;
       this.flag = flag;
       this.id = id;
+      this.completed = completed;
     
       return {
         project,
@@ -24,6 +32,7 @@ const todos = {
         dueDate,
         flag,
         id,
+        completed,
       }
     });
 
@@ -49,7 +58,8 @@ const todos = {
       _getNewTodoData().desc,
       _getNewTodoData().date,
       _getNewTodoData().flag,
-      id
+      id,
+      false,
     )
 
     return (newTodo);
