@@ -67,6 +67,11 @@ const todos = {
   add: (function(todo) {
     todos.arr.push(todo);
   }),
+  markComplete: (function(id) {
+    todos.arr.forEach(todo => {
+      if (todo.id === id) todo.completed = true;
+    })
+  }),
 };
 
 export default todos;
