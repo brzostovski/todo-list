@@ -64,10 +64,10 @@ import { nanoid } from 'nanoid';
 
     render().allTodos(todos.arr, pageContents.main);
 
-    let visTodos = document.querySelectorAll('.todo');
-    visTodos.forEach(todo => {
+    let visableTodos = document.querySelectorAll('.todo');
+    visableTodos.forEach(todo => {
       todo.querySelector('.delete-todo-btn').onclick = () => console.log('delete todo');
-      todo.querySelector('.completed-btn').onclick = () => console.log('complete todo');
+      todo.querySelector('.completed-btn').onclick = completeTodo(todo.id);
       todo.querySelector('.edit-todo-btn').onclick = () => console.log('edit todo');
     });
 
@@ -92,6 +92,11 @@ import { nanoid } from 'nanoid';
   function showProjectTodos(project) {
     render().projectTodos(project, todos.arr, pageContents.main);
   };
+
+  function completeTodo(id) {
+    todos.markComplete(id);
+    render().allTodos(todos.arr, pageContents.main);
+  }
 
   return;
 })();
